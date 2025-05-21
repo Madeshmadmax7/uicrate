@@ -527,7 +527,7 @@ export default OrigamiFold;`,
   },
 {
   id: 7,
-  title: 'Blur Card',
+  title: 'Rain Card',
   reactCode: `import React, { useEffect } from 'react';
 import './RainCard.css';
 
