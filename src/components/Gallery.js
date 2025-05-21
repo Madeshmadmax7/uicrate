@@ -288,7 +288,7 @@ export default CornerPeel;`,
   },
   {
     id: 4,
-    title: 'Crack Reveal',
+    title: 'Crack Card',
     reactCode: `import React, { useState } from 'react';
 import './CrackCard.css';
 
