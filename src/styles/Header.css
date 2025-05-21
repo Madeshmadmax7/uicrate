@@ -1,0 +1,20 @@
+.header-container {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #000;
+}
+
+.header-title {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    background: linear-gradient(to right, #003cff, #a7a6a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.header-subtitle {
+    color: #a0c8ff;
+    font-size: 1.2rem;
+}

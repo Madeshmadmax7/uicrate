@@ -1,0 +1,22 @@
+.aurora-glow {
+    color: white;
+    padding: 40px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 12px;
+    height: 140px;
+    width: 90px;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 200% 200%;
+    animation: aurora 6s ease infinite;
+    font-size: 13px;
+}
+.aurora-glow p{
+    color: white;
+    margin-top: 65%;
+}
+@keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

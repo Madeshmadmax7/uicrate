@@ -1,0 +1,41 @@
+.crack-card-container {
+    position: relative;
+    width: 170px;
+    height: 250px;
+    background: #222;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.piece {
+    position: absolute;
+    width: 33.33%;
+    height: 33.33%;
+    background: #3498db;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+.piece.break:nth-child(1) { transform: translate(-20px, -20px) rotate(-10deg); }
+.piece.break:nth-child(2) { transform: translate(0px, -30px) rotate(6deg); }
+.piece.break:nth-child(3) { transform: translate(20px, -10px) rotate(12deg); }
+.piece.break:nth-child(4) { transform: translate(-25px, 0px) rotate(-6deg); }
+.piece.break:nth-child(5) { transform: scale(1.1) rotate(0deg); }
+.piece.break:nth-child(6) { transform: translate(25px, 5px) rotate(5deg); }
+.piece.break:nth-child(7) { transform: translate(-15px, 20px) rotate(8deg); }
+.piece.break:nth-child(8) { transform: translate(0px, 25px) rotate(-4deg); }
+.piece.break:nth-child(9) { transform: translate(20px, 20px) rotate(10deg); }
+
+.card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    pointer-events: none;
+}

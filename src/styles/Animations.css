@@ -1,0 +1,210 @@
+/* 1 */
+
+.flip-magnet {
+  background: #222;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+  transform-style: preserve-3d;
+}
+
+.flip-magnet:hover {
+  transform: rotateY(180deg) scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0);
+}
+
+.flip-magnet:hover:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: background-color 0.4s ease;
+}
+
+/* 2 */
+.ink-bleed {
+  background: #111;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ink-bleed::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.ink-bleed:hover::after {
+  width: 300%;
+  height: 300%;
+  transition: width 0.5s ease, height 0.5s ease;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 3 */
+
+.peel-corner {
+  background: #333;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.peel-corner::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, #444, #999);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  transition: transform 0.4s;
+}
+
+.peel-corner:hover::after {
+  transform: rotate(90deg) translate(-10px, -10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 4 */
+
+.crack-reveal {
+  background: #111;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.crack-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://i.imgur.com/p8kF7uZ.png'); /* Replace with a valid image */
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.crack-reveal:hover::after {
+  opacity: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 5 */
+
+.neon-trail {
+  background: #0a0a0a;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.neon-trail:hover {
+  border-image: linear-gradient(90deg, #0ff, #f0f, #0ff) 1;
+  animation: neon-animate 2s linear infinite;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes neon-animate {
+  0% { border-image-slice: 1; }
+  100% { border-image-slice: 1; }
+}
+
+
+/* 6 */
+
+.origami-fold {
+  background: #222;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  transition: transform 0.6s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform-origin: center;
+}
+
+.origami-fold:hover {
+  transform: perspective(800px) rotateX(45deg) rotateY(45deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 7 */
+
+.blurred-glass {
+  background: #222;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blurred-glass::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  transform: rotate(0deg);
+  transition: transform 1s ease;
+}
+
+.blurred-glass:hover::after {
+  transform: rotate(30deg) translate(100%, 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 8 */
+
+.aurora-glow {
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 200% 200%;
+  animation: aurora 6s ease infinite;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.aurora-glow:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}

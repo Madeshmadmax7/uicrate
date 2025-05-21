@@ -1,0 +1,28 @@
+.corner-peel-box {
+    width: 170px;
+    height: 250px;
+    background-color: #1e1e1e;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid #2c2c2c; */
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px #000; */
+}
+
+.corner-peel-box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 25px 25px 0;
+    border-style: solid;
+    border-color: #2c2c2c #1a1a1a;
+    border-bottom-left-radius: 8px;
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.corner-peel-box:hover:before {
+    border-width: 0 80px 80px 0;
+}

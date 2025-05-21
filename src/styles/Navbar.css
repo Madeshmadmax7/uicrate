@@ -1,0 +1,32 @@
+.navbar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+}
+
+.navbar-left {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+.github-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.github-icon:hover {
+    transform: scale(1.1);
+}

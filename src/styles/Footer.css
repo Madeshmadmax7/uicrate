@@ -1,0 +1,15 @@
+.custom-footer {
+    background-color: black;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-name {
+    color: #4da6ff;
+}
