@@ -18,3 +18,31 @@
     color: #a0c8ff;
     font-size: 1.2rem;
 }
+
+@media (max-width: 600px) {
+    .header-container {
+        padding: 60px 15px;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .header-container {
+        padding: 150px 30px;
+    }
+
+    .header-title {
+        font-size: 4rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.5rem;
+    }
+}
