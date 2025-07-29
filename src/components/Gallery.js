@@ -10,6 +10,10 @@ import OrigamiFold from '../cards/OrigamiFold';
 import CrackCard from '../cards/CrackCard';
 import AuroraGlow from '../cards/AuroraGlow';
 import RainCard from '../cards/RainCard';
+import TextUnderline from '../cards/TextUnderline';
+import GlitchCard from '../cards/GlitchCard';
+import MindRipple from '../cards/MindRipple';
+import PulseGrid from '../cards/PulseGrid';
 
 const cardData = [
 {
@@ -668,6 +672,338 @@ export default AuroraGlow;`,
   100% { background-position: 0% 50%; }
 }`,
     preview: <AuroraGlow/>,
+  },
+  {
+    id: 9,
+    title: 'Dual Glide',
+    reactCode: `import React from 'react';
+import './TextUnderline.css';
+
+const TextUnderline = () => {
+    return (
+        <div className="ui-hover">
+            Hover me – UI Crate
+        </div>
+    );
+};
+
+export default TextUnderline;`,
+    cssCode: `@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap');
+
+.ui-hover {
+  font-size: 2.5rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.ui-hover::after,
+.ui-hover::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #38bdf8, #2563eb);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.ui-hover::after {
+  bottom: -6px;
+  left: 0;
+  transform-origin: right;
+}
+
+.ui-hover::before {
+  top: -6px;
+  left: 0;
+  transform-origin: left;
+}
+
+.ui-hover:hover::after,
+.ui-hover:hover::before {
+  transform: scaleX(1);
+}
+`,
+    preview: <TextUnderline/>,
+  },
+  {
+  id: 10,
+  title: 'Neuro-Glitch',
+  reactCode: `import React, { useEffect, useRef } from 'react';
+import './GlitchCard.css';
+
+const GlitchCard = () => {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const el = textRef.current;
+
+    const handleMove = (e) => {
+      const bounds = container.getBoundingClientRect();
+      const offsetX = ((e.clientX - bounds.left) / bounds.width - 0.5) * 12;
+      const offsetY = ((e.clientY - bounds.top) / bounds.height - 0.5) * 12;
+      el.style.setProperty('--drag-x', \`\${offsetX}px\`);
+      el.style.setProperty('--drag-y', \`\${offsetY}px\`);
+    };
+
+    const reset = () => {
+      el.style.setProperty('--drag-x', \`0px\`);
+      el.style.setProperty('--drag-y', \`0px\`);
+    };
+
+    container.addEventListener('mousemove', handleMove);
+    container.addEventListener('mouseleave', reset);
+
+    return () => {
+      container.removeEventListener('mousemove', handleMove);
+      container.removeEventListener('mouseleave', reset);
+    };
+  }, []);
+
+  return (
+    <div className="glitch-wrapper" ref={containerRef}>
+      <div className="glitch-text" ref={textRef} data-text="Hover me">
+        Hover me
+      </div>
+    </div>
+  );
+};
+
+export default GlitchCard;`,
+    cssCode: `@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap');
+
+.glitch-wrapper {
+  width: 220px;
+  height: 220px;
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.glitch-text {
+  font-size: 1.6rem;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  z-index: 1;
+  --drag-x: 0px;
+  --drag-y: 0px;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.glitch-text::before {
+  color: #ff005e;
+  transform: translate(calc(var(--drag-x) * -1), calc(var(--drag-y) * -1));
+  z-index: 2;
+}
+
+.glitch-text::after {
+  color: #00d4ff;
+  transform: translate(var(--drag-x), var(--drag-y));
+  z-index: 2;
+}
+`,
+    preview: <GlitchCard/>,
+  },
+  {
+  id: 11,
+  title: 'Mind Ripple',
+  reactCode: `import React from 'react';
+  import './MindRipple.css';
+  
+  const MindRipple = () => {
+      return (
+          <div className="ripple-container">
+          <div className="ripple-core"></div>
+          <div className="ripple-circle ripple-delay-1"></div>
+          <div className="ripple-circle ripple-delay-2"></div>
+          <div className="ripple-circle ripple-delay-3"></div>
+          </div>
+      );
+  };
+  
+  export default MindRipple;
+  `,
+    cssCode: `.ripple-container {
+  width: 180px;
+  height: 180px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.ripple-core {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #f8ae38;
+  box-shadow: 0 0 20px rgba(248, 194, 56, 0.6);
+  z-index: 2;
+  animation: pulse-core 2s infinite ease-in-out;
+}
+
+.ripple-circle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #f89838;
+  border-radius: 50%;
+  transform: scale(1);
+  opacity: 0.7;
+  animation: ripple-wave 2.5s infinite ease-out;
+}
+
+.ripple-delay-1 {
+  animation-delay: 0s;
+}
+.ripple-delay-2 {
+  animation-delay: 0.8s;
+}
+.ripple-delay-3 {
+  animation-delay: 1.6s;
+}
+
+@keyframes pulse-core {
+  0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(248, 200, 56, 0.6);
+  }
+  50% {
+      transform: scale(1.2);
+      box-shadow: 0 0 30px rgb(255, 182, 26);
+  }
+}
+
+@keyframes ripple-wave {
+  0% {
+      transform: scale(1);
+      opacity: 0.6;
+  }
+  100% {
+      transform: scale(8);
+      opacity: 0;
+  }
+}
+`,
+    preview: <MindRipple/>,
+  },
+  {
+  id: 12,
+  title: 'Pulse Grid',
+  reactCode: `import React, { useEffect, useRef } from 'react';
+import './PulseGrid.css';
+
+const GRID_SIZE = 8;
+
+const PulseGrid = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const dots = containerRef.current.querySelectorAll('.grid-dot');
+
+    const handleMove = (e) => {
+      dots.forEach(dot => {
+        const rect = dot.getBoundingClientRect();
+        const dx = rect.left + rect.width / 2 - e.clientX;
+        const dy = rect.top + rect.height / 2 - e.clientY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxDist = 80;
+        if (dist < maxDist) {
+          const scale = 1.4 - dist / maxDist;
+          dot.style.transform = \`scale(\${scale})\`;
+          dot.style.opacity = \`\${0.4 + (1 - dist / maxDist) * 0.6}\`;
+        } else {
+          dot.style.transform = 'scale(1)';
+          dot.style.opacity = '0.2';
+        }
+      });
+    };
+
+    const reset = () => {
+      dots.forEach(dot => {
+        dot.style.transform = 'scale(1)';
+        dot.style.opacity = '0.2';
+      });
+    };
+
+    const container = containerRef.current;
+    container.addEventListener('mousemove', handleMove);
+    container.addEventListener('mouseleave', reset);
+
+    return () => {
+      container.removeEventListener('mousemove', handleMove);
+      container.removeEventListener('mouseleave', reset);
+    };
+  }, []);
+
+  return (
+    <div className="pulse-card">
+      <div className="pulse-grid" ref={containerRef}>
+        {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, i) => (
+          <div key={i} className="grid-dot" />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default PulseGrid;`,
+    cssCode: `.pulse-card {
+  width: 260px;
+  height: 340px;
+  background: transparent;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.pulse-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 12px;
+}
+
+.grid-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #f83838;
+  border-radius: 50%;
+  opacity: 0.2;
+  transform: scale(1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  pointer-events: none;
+}
+`,
+    preview: <PulseGrid/>,
   },
 ];
 

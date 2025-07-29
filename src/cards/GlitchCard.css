@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap');
+
+.glitch-wrapper {
+  width: 220px;
+  height: 220px;
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.glitch-text {
+  font-size: 1.6rem;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  z-index: 1;
+  --drag-x: 0px;
+  --drag-y: 0px;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.glitch-text::before {
+  color: #ff005e;
+  transform: translate(calc(var(--drag-x) * -1), calc(var(--drag-y) * -1));
+  z-index: 2;
+}
+
+.glitch-text::after {
+  color: #00d4ff; /* blue */
+  transform: translate(var(--drag-x), var(--drag-y));
+  z-index: 2;
+}
