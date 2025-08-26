@@ -14,12 +14,16 @@ import TextUnderline from '../cards/TextUnderline';
 import GlitchCard from '../cards/GlitchCard';
 import MindRipple from '../cards/MindRipple';
 import PulseGrid from '../cards/PulseGrid';
+import HeartBeatECG from '../cards/HeartBeatECG';
+import StarFieldCard from '../cards/StarFieldCard';
+import LightsaberFightCard from '../cards/LightsaberFightCard';
+import SpinningCircles from '../cards/SpinningCricles';
 
 const cardData = [
-{
-  id: 1,
-  title: 'Magnetic Card',
-  reactCode: `import React, { useEffect, useRef } from 'react';
+  {
+    id: 1,
+    title: 'Magnetic Card',
+    reactCode: `import React, { useEffect, useRef } from 'react';
 import './DotCard.css';
 
 const DotCard = () => {
@@ -120,7 +124,7 @@ return (
 };
 
 export default DotCard;`,
-  cssCode: `.outer-card {
+    cssCode: `.outer-card {
     width: 180px;
     height: 240px;
     background: #000000;
@@ -162,9 +166,9 @@ export default DotCard;`,
     color: white;
     font-size: 20px;
 }`,
-  preview: <DotCard />
-}
-,
+    preview: <DotCard />
+  }
+  ,
   {
     id: 2,
     title: 'Cut Out Card',
@@ -248,7 +252,7 @@ export default CutoutCard;`,
     font-size: 20px;
     opacity: 0;
 }`,
-    preview: <CutoutCard/>
+    preview: <CutoutCard />
   },
   {
     id: 3,
@@ -288,7 +292,7 @@ export default CornerPeel;`,
 .corner-peel-box:hover:before {
     border-width: 0 80px 80px 0;
 }`,
-    preview: <CornerPeel/>,
+    preview: <CornerPeel />,
   },
   {
     id: 4,
@@ -371,7 +375,7 @@ export default CrackCard;`,
     font-weight: bold;
     pointer-events: none;
 }`,
-    preview: <CrackCard/>,
+    preview: <CrackCard />,
   },
   {
     id: 5,
@@ -430,7 +434,7 @@ export default NeonTrail;
     font-size: 13px;
     margin: 0;
 }`,
-    preview: <NeonTrail/>,
+    preview: <NeonTrail />,
   },
   {
     id: 6,
@@ -527,12 +531,12 @@ export default OrigamiFold;`,
   text-align: center;
   z-index: 10;
 }`,
-    preview: <OrigamiFold/>,
+    preview: <OrigamiFold />,
   },
-{
-  id: 7,
-  title: 'Rain Card',
-  reactCode: `import React, { useEffect } from 'react';
+  {
+    id: 7,
+    title: 'Rain Card',
+    reactCode: `import React, { useEffect } from 'react';
 import './RainCard.css';
 
 const RainCard = () => {
@@ -588,7 +592,7 @@ const RainCard = () => {
 };
 
 export default RainCard;`,
-  cssCode: `.rain-container {
+    cssCode: `.rain-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -646,9 +650,9 @@ export default RainCard;`,
   0%, 65% { opacity: 1; }
   75%, 100% { opacity: 0; }
 }`,
-  preview: <RainCard />
-}
-,
+    preview: <RainCard />
+  }
+  ,
   {
     id: 8,
     title: 'Aurora Glow',
@@ -671,7 +675,7 @@ export default AuroraGlow;`,
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }`,
-    preview: <AuroraGlow/>,
+    preview: <AuroraGlow />,
   },
   {
     id: 9,
@@ -728,12 +732,12 @@ export default TextUnderline;`,
   transform: scaleX(1);
 }
 `,
-    preview: <TextUnderline/>,
+    preview: <TextUnderline />,
   },
   {
-  id: 10,
-  title: 'Neuro-Glitch',
-  reactCode: `import React, { useEffect, useRef } from 'react';
+    id: 10,
+    title: 'Neuro-Glitch',
+    reactCode: `import React, { useEffect, useRef } from 'react';
 import './GlitchCard.css';
 
 const GlitchCard = () => {
@@ -826,12 +830,12 @@ export default GlitchCard;`,
   z-index: 2;
 }
 `,
-    preview: <GlitchCard/>,
+    preview: <GlitchCard />,
   },
   {
-  id: 11,
-  title: 'Mind Ripple',
-  reactCode: `import React from 'react';
+    id: 11,
+    title: 'Mind Ripple',
+    reactCode: `import React from 'react';
   import './MindRipple.css';
   
   const MindRipple = () => {
@@ -910,12 +914,12 @@ export default GlitchCard;`,
   }
 }
 `,
-    preview: <MindRipple/>,
+    preview: <MindRipple />,
   },
   {
-  id: 12,
-  title: 'Pulse Grid',
-  reactCode: `import React, { useEffect, useRef } from 'react';
+    id: 12,
+    title: 'Pulse Grid',
+    reactCode: `import React, { useEffect, useRef } from 'react';
 import './PulseGrid.css';
 
 const GRID_SIZE = 8;
@@ -1003,30 +1007,602 @@ export default PulseGrid;`,
   pointer-events: none;
 }
 `,
-    preview: <PulseGrid/>,
+    preview: <PulseGrid />,
+  },
+  {
+    id: 13,
+    title: 'Pulse Grid',
+    reactCode: `import React from 'react';
+    import './HeartBeatECG.css';
+    
+    const HeartBeatECG = () => (
+      <div className="heartbeat-ecg-container">
+        <svg
+          className="heartbeat-ecg-svg"
+          viewBox="0 0 60 50"
+          width="100"
+          height="84"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            className="heartbeat-ecg-heart"
+            d="M30 39.7l-.6-.5C16.5 28.7 13 25 13 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM22 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L30 17.1l-1.1-1.3C27.4 14.1 25.5 12 22 12z"
+            fill="#fa4256"
+          />
+          <polyline
+            className="heartbeat-ecg-line"
+            points="2,28 10,28 15,23 22,42 30,12 38,42 45,18 50,28 58,28"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    );
+    
+    export default HeartBeatECG;`,
+    cssCode: `.heartbeat-ecg-container {
+  width: 140px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heartbeat-ecg-svg {
+  width: 140px;
+  height: 120px;
+}
+
+.heartbeat-ecg-heart {
+  animation: heartBeatAnim 1.08s infinite;
+  transform-origin: 30px 32px;
+}
+
+@keyframes heartBeatAnim {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.08); }
+  35% { transform: scale(1.16); }
+  70% { transform: scale(0.96);}
+  85% { transform: scale(1.08);}
+}
+
+/* Make ECG line continuous by increasing dasharray */
+.heartbeat-ecg-line {
+  stroke-dasharray: 200; /* increased for smoothness */
+  stroke-dashoffset: 200;
+  animation: ecgAnim 1.08s linear infinite;
+}
+
+@keyframes ecgAnim {
+  0%   { stroke-dashoffset: 200; }
+  55%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -50; }
+}`,
+    preview: <HeartBeatECG />,
+  },
+  {
+    id: 14,
+    title: 'Pulse Grid',
+    reactCode: `import React from "react";
+import "./SpinningCircles.css";
+
+const COUNT = 16;
+const SIZE = "300px";
+const COLOR = "#fff";
+const SPEED = 12;
+
+function getCircleStyle(n) {
+    const stepPx = \`calc(\${SIZE} / \${COUNT})\`;
+    const sizePx = \`calc(\${SIZE} - (\${stepPx} * \${n}))\`;
+    const offsetPx = \`calc((\${stepPx} * \${n}) / 2)\`;
+    const duration = SPEED / (n + 1);
+    return {
+        position: "absolute",
+        background: "transparent",
+        border: \`2px solid \${COLOR}\`,
+        borderRadius: "50%",
+        left: offsetPx,
+        top: offsetPx,
+        width: sizePx,
+        height: sizePx,
+        animation: \`spin \${duration}s infinite linear\`,
+        boxSizing: "border-box",
+        borderStyle: n % 2 === 0 ? "dashed" : "solid",
+        borderColor: n % 2 === 0 ? "rgba(255,255,255,0.5)" : COLOR,
+        display: n === COUNT - 1 ? "none" : "block",
+    };
+}
+
+const SpinningCircles = () => (
+    <div className="container">
+        {Array.from({ length: COUNT }).map((_, n) => (
+            <div
+                key={n}
+                className={\`circle\${n % 2 === 0 ? " even" : ""}\`}
+                data-index={n}
+                style={getCircleStyle(n)}
+            />
+        ))}
+    </div>
+);
+
+export default SpinningCircles;`,
+    cssCode: `.card {
+  width: 480px;
+  height: 480px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+  margin: 32px auto;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(45deg) rotateX(45deg);
+  margin: 0 auto;
+  background: transparent;
+}
+
+.circle {
+  /* optional extra styles */
+}
+
+@keyframes spin {
+  0% {
+      transform: rotateZ(0deg);
+  }
+  100% {
+      transform: rotateZ(360deg);
+  }
+}`,
+    preview: <SpinningCircles />,
+  }
+  ,
+  {
+    id: 15,
+    title: 'Pulse Grid',
+    reactCode: `import React, { useEffect, useRef , useState } from "react";
+  import "./StarFieldCard.css";
+  
+  const StarFieldCard = () => {
+      const canvasRef = useRef(null);
+    const [hovered, setHovered] = useState(false);
+  
+    useEffect(() => {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+  
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+  
+      const w = canvas.width;
+      const h = canvas.height;
+      const centerX = w / 2;
+      const centerY = h / 2;
+  
+      const starCount = 150;
+      let baseSpeed = 2;
+  
+      class Star {
+        constructor() {
+          this.reset();
+        }
+  
+        reset() {
+          this.x = (Math.random() - 0.5) * w;
+          this.y = (Math.random() - 0.5) * h;
+          this.z = Math.random() * w;
+          this.prevX = null;
+          this.prevY = null;
+        }
+  
+        update(speed) {
+          this.z -= speed;
+          if (this.z <= 0) this.reset();
+        }
+  
+        draw() {
+          const sx = centerX + (this.x / this.z) * w;
+          const sy = centerY + (this.y / this.z) * h;
+  
+          const dx = sx - centerX;
+          const dy = sy - centerY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 10) return;
+  
+          if (this.prevX !== null) {
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba(255,255,255,0.9)";
+            ctx.lineWidth = 1.5;
+            ctx.moveTo(this.prevX, this.prevY);
+            ctx.lineTo(sx, sy);
+            ctx.stroke();
+          }
+  
+          this.prevX = sx;
+          this.prevY = sy;
+        }
+      }
+  
+      const stars = Array.from({ length: starCount }, () => new Star());
+  
+      function animate() {
+        ctx.fillStyle = "rgba(0,0,0,0.3)";
+        ctx.fillRect(0, 0, w, h);
+  
+        const speed = hovered ? baseSpeed * 2 : baseSpeed;
+  
+        stars.forEach((star) => {
+          star.update(speed);
+          star.draw();
+        });
+  
+        requestAnimationFrame(animate);
+      }
+  
+      animate();
+    }, [hovered]);
+  
+    return (
+      <canvas
+        ref={canvasRef}
+        className="starfield-canvas"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      />
+    );
+  };
+  
+  export default StarFieldCard;`,
+    cssCode: `.starfield-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  cursor: crosshair;
+}
+
+`,
+    preview: <StarFieldCard />,
+  },
+  {
+    id: 16,
+    title: 'Pulse Grid',
+    reactCode: `import React from "react";
+  import "./LightsaberFightCard.css";
+  
+  const LightsaberFightCard = () => {
+      return (
+          <div className="card">
+              <div id="loader">
+                  <div className="lightsaber ls-left ls-green"></div>
+                  <div className="lightsaber ls-right ls-red"></div>
+  
+                  <div className="ls-particles ls-part-1"></div>
+                  <div className="ls-particles ls-part-2"></div>
+                  <div className="ls-particles ls-part-3"></div>
+                  <div className="ls-particles ls-part-4"></div>
+                  <div className="ls-particles ls-part-5"></div>
+              </div>
+          </div>
+      );
+  };
+  
+  export default LightsaberFightCard;`,
+    cssCode: `.card {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+#loader {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.lightsaber {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #666;
+    border-radius: 2px;
+    bottom: 0;
+}
+
+.lightsaber:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 80px;
+    left: 3px;
+    top: -80px;
+    border-radius: 2px;
+    transform-origin: center bottom;
+    transform: scaleY(0);
+}
+
+.lightsaber:after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    left: 3px;
+    top: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.lightsaber.ls-left {
+    left: 0;
+    animation: fightleft 2s ease-in-out infinite 1s;
+}
+
+.lightsaber.ls-right {
+    right: 0;
+    animation: fightright 2s ease-in-out infinite 1s;
+}
+
+.lightsaber.ls-green:before {
+    background-color: #87c054;
+    animation: showlightgreen 2s ease-in-out infinite 1s;
+}
+
+.lightsaber.ls-red:before {
+    background-color: #f06363;
+    animation: showlightred 2s ease-in-out infinite 1s;
+}
+
+@keyframes showlightgreen {
+
+    0%,
+    100% {
+        transform: scaleY(0);
+        box-shadow: 0 0 0 0 #87c054;
+    }
+
+    50% {
+        transform: scaleY(1);
+        box-shadow: 0 0 8px 3px #87c054;
+    }
+}
+
+@keyframes showlightred {
+
+    0%,
+    100% {
+        transform: scaleY(0);
+        box-shadow: 0 0 0 0 #f06363;
+    }
+
+    50% {
+        transform: scaleY(1);
+        box-shadow: 0 0 8px 3px #f06363;
+    }
+}
+
+@keyframes fightleft {
+
+    0%,
+    30% {
+        transform: rotateZ(0deg);
+        left: 0;
+        bottom: 0;
+    }
+
+    40% {
+        transform: rotateZ(45deg);
+        bottom: 2px;
+    }
+
+    65% {
+        transform: rotateZ(410deg);
+        left: 40px;
+        bottom: 15px;
+    }
+
+    95%,
+    100% {
+        transform: rotateZ(360deg);
+        left: 0;
+        bottom: 0;
+    }
+}
+
+@keyframes fightright {
+
+    0%,
+    30% {
+        transform: rotateZ(0deg);
+        right: 0;
+        bottom: 0;
+    }
+
+    45% {
+        transform: rotateZ(-45deg);
+        bottom: 2px;
+    }
+
+    68% {
+        transform: rotateZ(-410deg);
+        right: 35px;
+        bottom: 15px;
+    }
+
+    95%,
+    100% {
+        transform: rotateZ(-360deg);
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.ls-particles {
+    position: absolute;
+    left: 70px;
+    top: 40px;
+    width: 3px;
+    height: 6px;
+    background-color: transparent;
+    opacity: 0;
+}
+
+.ls-part-1 {
+    animation: particles1 2s ease-out infinite 1s;
+}
+
+.ls-part-2 {
+    animation: particles2 2s ease-out infinite 1s;
+}
+
+.ls-part-3 {
+    animation: particles3 2s ease-out infinite 1s;
+}
+
+.ls-part-4 {
+    animation: particles4 2s ease-out infinite 1s;
+}
+
+.ls-part-5 {
+    animation: particles5 2s ease-out infinite 1s;
+}
+
+@keyframes particles1 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(35deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(35deg) translateY(-50px);
+    }
+}
+
+@keyframes particles2 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(-65deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(-65deg) translateY(-60px);
+    }
+}
+
+@keyframes particles3 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(-75deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(-75deg) translateY(-55px);
+    }
+}
+
+@keyframes particles4 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(-25deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(-25deg) translateY(-45px);
+    }
+}
+
+@keyframes particles5 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(65deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(65deg) translateY(-55px);
+    }
+}`,
+    preview: <LightsaberFightCard />,
   },
 ];
 
 function Gallery() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-return (
+  return (
     <div className="gallery-container">
-    <div className="card-grid">
+      <div className="card-grid">
         {cardData.map((card) => (
-        <div key={card.id} className="card-wrapper">
+          <div key={card.id} className="card-wrapper">
             <div className="custom-card" onClick={() => navigate(`/gallery/${card.id}`)}>
               <div className="card-inner">
-                  {card.preview}
+                {card.preview}
               </div>
             </div>
             <h3 className="card-title">{card.title}</h3>
             <p className="card-desc">Click to view code</p>
-        </div>
+          </div>
         ))}
+      </div>
     </div>
-    </div>
-);
+  );
 }
 
 export default Gallery;

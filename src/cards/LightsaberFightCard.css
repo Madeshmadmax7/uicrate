@@ -1,0 +1,284 @@
+.card {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+#loader {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.lightsaber {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #666;
+    border-radius: 2px;
+    bottom: 0;
+}
+
+/* ================== Blade ================== */
+.lightsaber:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 80px;
+    /* max height */
+    left: 3px;
+    top: -80px;
+    border-radius: 2px;
+    transform-origin: center bottom;
+    /* ✅ ensures growth from handle */
+    transform: scaleY(0);
+    /* start hidden */
+}
+
+/* Glow Dot at Handle */
+.lightsaber:after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    left: 3px;
+    top: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/* ================== Lightsaber Side Positions ================== */
+.lightsaber.ls-left {
+    left: 0;
+    animation: fightleft 2s ease-in-out infinite 1s;
+}
+
+.lightsaber.ls-right {
+    right: 0;
+    animation: fightright 2s ease-in-out infinite 1s;
+}
+
+/* ================== Blade Colors & Animations ================== */
+.lightsaber.ls-green:before {
+    background-color: #87c054;
+    animation: showlightgreen 2s ease-in-out infinite 1s;
+}
+
+.lightsaber.ls-red:before {
+    background-color: #f06363;
+    animation: showlightred 2s ease-in-out infinite 1s;
+}
+
+@keyframes showlightgreen {
+
+    0%,
+    100% {
+        transform: scaleY(0);
+        box-shadow: 0 0 0 0 #87c054;
+    }
+
+    50% {
+        transform: scaleY(1);
+        box-shadow: 0 0 8px 3px #87c054;
+    }
+}
+
+@keyframes showlightred {
+
+    0%,
+    100% {
+        transform: scaleY(0);
+        box-shadow: 0 0 0 0 #f06363;
+    }
+
+    50% {
+        transform: scaleY(1);
+        box-shadow: 0 0 8px 3px #f06363;
+    }
+}
+
+/* ================== Fight Animations ================== */
+@keyframes fightleft {
+
+    0%,
+    30% {
+        transform: rotateZ(0deg);
+        left: 0;
+        bottom: 0;
+    }
+
+    40% {
+        transform: rotateZ(45deg);
+        bottom: 2px;
+    }
+
+    65% {
+        transform: rotateZ(410deg);
+        left: 40px;
+        bottom: 15px;
+    }
+
+    95%,
+    100% {
+        transform: rotateZ(360deg);
+        left: 0;
+        bottom: 0;
+    }
+}
+
+@keyframes fightright {
+
+    0%,
+    30% {
+        transform: rotateZ(0deg);
+        right: 0;
+        bottom: 0;
+    }
+
+    45% {
+        transform: rotateZ(-45deg);
+        bottom: 2px;
+    }
+
+    68% {
+        transform: rotateZ(-410deg);
+        right: 35px;
+        bottom: 15px;
+    }
+
+    95%,
+    100% {
+        transform: rotateZ(-360deg);
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.ls-particles {
+    position: absolute;
+    left: 70px;
+    top: 40px;
+    width: 3px;
+    height: 6px;
+    background-color: transparent;
+    opacity: 0;
+}
+
+.ls-part-1 {
+    animation: particles1 2s ease-out infinite 1s;
+}
+
+.ls-part-2 {
+    animation: particles2 2s ease-out infinite 1s;
+}
+
+.ls-part-3 {
+    animation: particles3 2s ease-out infinite 1s;
+}
+
+.ls-part-4 {
+    animation: particles4 2s ease-out infinite 1s;
+}
+
+.ls-part-5 {
+    animation: particles5 2s ease-out infinite 1s;
+}
+
+/* ================== Spark Particle Burst Animations ================== */
+@keyframes particles1 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(35deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(35deg) translateY(-50px);
+    }
+}
+
+@keyframes particles2 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(-65deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(-65deg) translateY(-60px);
+    }
+}
+
+@keyframes particles3 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(-75deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(-75deg) translateY(-55px);
+    }
+}
+
+@keyframes particles4 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(-25deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(-25deg) translateY(-45px);
+    }
+}
+
+@keyframes particles5 {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotateZ(65deg) translateY(0);
+    }
+
+    64% {
+        opacity: 1;
+        background-color: #fff;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateZ(65deg) translateY(-55px);
+    }
+}

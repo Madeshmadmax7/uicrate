@@ -1,0 +1,39 @@
+.heartbeat-ecg-container {
+  width: 140px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heartbeat-ecg-svg {
+  width: 140px;
+  height: 120px;
+}
+
+.heartbeat-ecg-heart {
+  animation: heartBeatAnim 1.08s infinite;
+  transform-origin: 30px 32px;
+}
+
+@keyframes heartBeatAnim {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.08); }
+  35% { transform: scale(1.16); }
+  70% { transform: scale(0.96);}
+  85% { transform: scale(1.08);}
+}
+
+/* Make ECG line continuous by increasing dasharray */
+.heartbeat-ecg-line {
+  stroke-dasharray: 200; /* increased for smoothness */
+  stroke-dashoffset: 200;
+  animation: ecgAnim 1.08s linear infinite;
+}
+
+@keyframes ecgAnim {
+  0%   { stroke-dashoffset: 200; }
+  55%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -50; }
+}
