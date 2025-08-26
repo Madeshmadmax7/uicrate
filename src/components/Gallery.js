@@ -1011,7 +1011,7 @@ export default PulseGrid;`,
   },
   {
     id: 13,
-    title: 'Pulse Grid',
+    title: 'Heart Beat',
     reactCode: `import React from 'react';
     import './HeartBeatECG.css';
     
@@ -1085,7 +1085,7 @@ export default PulseGrid;`,
   },
   {
     id: 14,
-    title: 'Pulse Grid',
+    title: 'Spinny Loader',
     reactCode: `import React from "react";
 import "./SpinningCircles.css";
 
@@ -1173,7 +1173,7 @@ export default SpinningCircles;`,
   ,
   {
     id: 15,
-    title: 'Pulse Grid',
+    title: 'Star Field Night',
     reactCode: `import React, { useEffect, useRef , useState } from "react";
   import "./StarFieldCard.css";
   
@@ -1282,7 +1282,7 @@ export default SpinningCircles;`,
   },
   {
     id: 16,
-    title: 'Pulse Grid',
+    title: 'Light Saber Fight',
     reactCode: `import React from "react";
   import "./LightsaberFightCard.css";
   
