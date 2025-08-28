@@ -1,0 +1,110 @@
+@keyframes clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counter-clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.gearbox {
+    background: transparent;
+    height: 150px;
+    width: 200px;
+    position: relative;
+    border: none;
+    overflow: hidden;
+
+    /* Center items with flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make .gear positioned relative to center with offset */
+.gear {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Offset gears to left and right */
+.gear.one {
+    transform: translate(calc(-50% - 40px), calc(-50% - 10px));
+}
+
+.gear.two {
+    transform: translate(calc(-50% + 30px), calc(-50% + 30px));
+}
+
+.gear:after {
+    content: "";
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    border-radius: 36px;
+    background: #111;
+    top: 50%;
+    left: 50%;
+    margin-left: -18px;
+    margin-top: -18px;
+    z-index: 3;
+    box-shadow:
+        0px 0px 10px rgba(255, 255, 255, 0.1),
+        inset 0px 0px 10px rgba(0, 0, 0, 0.1),
+        inset 0px 2px 0px 0px #090909;
+}
+
+.gear-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #555;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gear.one .gear-inner {
+    animation: counter-clockwise 3s infinite linear;
+}
+
+.gear.two .gear-inner {
+    animation: clockwise 3s infinite linear;
+}
+
+.gear-inner .bar {
+    background: #555;
+    height: 16px;
+    width: 76px;
+    position: absolute;
+    left: 50%;
+    margin-left: -38px;
+    top: 50%;
+    margin-top: -8px;
+    border-radius: 2px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gear-inner .bar:nth-child(2) {
+    transform: rotate(60deg);
+}
+
+.gear-inner .bar:nth-child(3) {
+    transform: rotate(120deg);
+}

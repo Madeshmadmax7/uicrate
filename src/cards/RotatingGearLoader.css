@@ -2,12 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* full page center */
+  height: 100vh;
   background: transparent;
-  gap: 20px; /* spacing between gears */
+  gap: 20px;
 }
 
-/* base gear */
 .gear {
   width: 60px;
   height: 60px;
@@ -17,7 +16,6 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.3) inset;
 }
 
-/* teeth (spikes around gear) */
 .gear::before {
   content: "";
   position: absolute;
@@ -35,7 +33,6 @@
   -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
 }
 
-/* animation */
 @keyframes spin-cw {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -46,7 +43,6 @@
   to   { transform: rotate(-360deg); }
 }
 
-/* different gears spin at different speeds */
 .gear1 {
   animation: spin-cw 4s linear infinite;
 }
